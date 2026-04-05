@@ -8,7 +8,7 @@ Graph structure:
             -> output
 """
 
-from langgraph.graph import StateGraph, END
+from langgraph.graph import StateGraph, START, END
 from commcopilot.state import PipelineState
 from commcopilot.config import CONFIDENCE_THRESHOLD, FALLBACK_PHRASES
 from commcopilot.nodes.embedding import embed_transcript
@@ -44,8 +44,8 @@ def build_graph() -> StateGraph:
     graph.add_node("safety", filter_phrases)
 
     # Entry: fan-out to embed + context in parallel
-    graph.set_entry_point("embed")
-    graph.set_entry_point("context")
+    graph.add_edge(START, "embed")
+    graph.add_edge(START, "context")
 
     # N2 embed is fire-and-forget, goes to END
     graph.add_edge("embed", END)

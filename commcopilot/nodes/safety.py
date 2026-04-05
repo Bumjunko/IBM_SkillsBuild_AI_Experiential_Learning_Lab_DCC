@@ -7,7 +7,7 @@ from commcopilot.config import (
     WATSONX_API_KEY,
     WATSONX_PROJECT_ID,
     WATSONX_URL,
-    GRANITE_MODEL_ID,
+    AGENT_MODEL_ID,
     FALLBACK_PHRASES,
     MAX_SAFETY_RETRIES,
     MIN_SAFE_PHRASES,
@@ -24,7 +24,7 @@ def _call_safety_filter(phrases: list[str]) -> list[str]:
 
     credentials = Credentials(api_key=WATSONX_API_KEY, url=WATSONX_URL)
     model = ModelInference(
-        model_id=GRANITE_MODEL_ID,
+        model_id=AGENT_MODEL_ID,
         credentials=credentials,
         project_id=WATSONX_PROJECT_ID,
         params={"max_new_tokens": 300, "temperature": 0.1},

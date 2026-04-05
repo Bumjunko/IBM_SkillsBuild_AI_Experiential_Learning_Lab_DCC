@@ -7,7 +7,7 @@ load_dotenv()
 WATSONX_API_KEY = os.getenv("WATSONX_API_KEY", "")
 WATSONX_PROJECT_ID = os.getenv("WATSONX_PROJECT_ID", "")
 WATSONX_URL = os.getenv("WATSONX_URL", "")
-GRANITE_MODEL_ID = os.getenv("GRANITE_MODEL_ID", "")
+AGENT_MODEL_ID = os.getenv("AGENT_MODEL_ID", "")
 EMBEDDING_MODEL_ID = os.getenv("EMBEDDING_MODEL_ID", "")
 
 # IBM Watson STT
